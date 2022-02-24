@@ -1,14 +1,16 @@
-let div = document.createElement('div');
-let textNode = document.createTextNode('Kto prochital tot sdoxnit');
-document.body.append(div);
-div.append(textNode);
+const playBtn = document.querySelector('.play-btn');
+const pauseBtn = document.querySelector('.pause-btn');
+const audio = new Audio();
 
-
-div.classList.add('goose');
-let goose = document.querySelector('.goose');
-goose.style.margin = '50px';
-function multi(){
-    let inp1 = document.getElementById('inp_1').nodeValue,
-    inp2 = document.getElementById('inp_2').nodeValue;
-console.log(inp1*inp2);
+function playAudio() {
+  audio.src = 'https://7oom.ru/audio/naturesounds/07%20Birds%20(7oom.ru).mp3';
+  audio.currentTime = 0;
+  audio.play();
 }
+
+function pauseAudio() {
+  audio.pause();
+}
+
+playBtn.addEventListener('click', playAudio);
+pauseBtn.addEventListener('click', pauseAudio);
